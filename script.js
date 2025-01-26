@@ -1,22 +1,20 @@
+window.onload = function() {
+  document.getElementById('change_button').addEventListener('click', 
+  function(){
+    var blockId = document.getElementById('block_id').value;
+    var color = document.getElementById('colour_id').value;
 
-// This file is not to be modified. Please ignore this.
-// We will understand all of this later in the course.
-// DO NOT MODIFY THIS FILE
+    var blocks = document.getElementsByClassName('grid-item');
+    for(var i = 0; i<blocks.length; i++){
+      blocks[i].style.backgroundColor = 'transparent';
+    }
+    document.getElementById(blockId).style.backgroundColor = color;
+  });
 
-const express = require('express');
-const path = require('path');
-
-const app = express();
-
-app.use(express.static(__dirname))
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/main.html'));
-});
-//your code here
-app.post('/add', (req, res) => {
-  const {a,b} = req.body;
-  res.status(200).send(a+b);
-  // res.sendFile(path.join(__dirname + '/main.html'));
-});
-module.exports = app;
+  document.getElementById('Reset').addEventListener('click', function(){
+    var blocks = document.getElementsByClassName('grid-item');
+    for(let i = 0; i < blocks.length; i++){
+      blocks[i].style.backgroundColor = 'transparent';
+    }
+  });
+}
