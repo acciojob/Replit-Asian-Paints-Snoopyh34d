@@ -1,24 +1,48 @@
-
-/* 
-
-window.onload = function() {
-  document.getElementById('change_button').addEventListener('click', 
-  function(){
-    var blockId = document.getElementById('block_id').value;
-    var color = document.getElementById('colour_id').value;
-
-    var blocks = document.getElementsByClassName('grid-item');
-    for(var i = 0; i<blocks.length; i++){
-      blocks[i].style.backgroundColor = 'transparent';
-    }
-    document.getElementById(blockId).style.backgroundColor = color;
-  });
-
-  document.getElementById('Reset').addEventListener('click', function(){
-    var blocks = document.getElementsByClassName('grid-item');
-    for(let i = 0; i < blocks.length; i++){
-      blocks[i].style.backgroundColor = 'transparent';
-    }
-  });
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto;
+    width: 320px;
 }
-*/
+
+.grid-item {
+    border: 1px solid black;
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    margin: 10px 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#reset_button {
+    background-color: #dc3545;
+}
+
+#reset_button:hover {
+    background-color: #a71d2a;
+}
