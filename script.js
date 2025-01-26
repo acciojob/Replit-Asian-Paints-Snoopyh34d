@@ -1,31 +1,26 @@
-const gridItems = document.querySelectorAll('.grid-item');
-const blockIdInput = document.getElementById('block_id');
-const colorIdInput = document.getElementById('colour_id');
-const changeButton = document.getElementById('change_button');
-const resetButton = document.getElementById('reset_button');
+// Get the elements
+const changeButton = document.getElementById("change_button");
+const resetButton = document.getElementById("reset_button");
+const blockInput = document.getElementById("block_id");
+const colorInput = document.getElementById("colour_id");
+const gridItems = document.querySelectorAll(".grid-item");
 
-// Change color functionality
-changeButton.addEventListener('click', () => {
-    const blockId = blockIdInput.value.trim();
-    const color = colorIdInput.value.trim();
+// Add event listener to change the color of the specified block
+changeButton.addEventListener("click", () => {
+  const blockId = blockInput.value.trim(); // Get the block ID from input
+  const color = colorInput.value.trim(); // Get the color from input
 
-    // Reset all grid items to transparent
-    gridItems.forEach(item => {
-        item.style.backgroundColor = 'transparent';
-    });
-
-    // Change the background color of the selected block
-    const selectedBlock = document.getElementById(blockId);
-    if (selectedBlock && color) {
-        selectedBlock.style.backgroundColor = color;
-    } else {
-        alert('Please enter a valid Block ID (1–9) and a color.');
+  if (blockId && color) {
+    const block = document.getElementById(blockId); // Select the block by ID
+    if (block) {
+      block.style.backgroundColor = color; // Change its background color
     }
+  }
 });
 
-// Reset all grid items' background colors
-resetButton.addEventListener('click', () => {
-    gridItems.forEach(item => {
-        item.style.backgroundColor = 'transparent';
-    });
+// Add event listener to reset all grid items to their default color
+resetButton.addEventListener("click", () => {
+  gridItems.forEach((item) => {
+    item.style.backgroundColor = ""; // Reset to default color
+  });
 });
